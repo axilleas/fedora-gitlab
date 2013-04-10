@@ -1,7 +1,7 @@
-#!/usr/env/bin python2
+#!/usr/bin/env python2
 
 import urllib2
-
+#import subprocess
 
 def gitlab_gems_list():
     '''url strings -> list
@@ -56,13 +56,14 @@ def statistics(gitlab_gemlist, fedora_gemlist):
     pass
 
 def main():
-
+    #subprocess.call(['rubysearch.sh'], cwd='/home/axil/tools/fedora-gitlab/')
     gitlab_gems = gitlab_gems_list()
-    fedora_gems_file = raw_input('Fedora gems file path: ')
+    fedora_gems_file = '/home/axil/tools/fedora-gitlab/rubygems_fedora'
     fedora_gems = fedora_gems_list(fedora_gems_file)
     common = common_gems(gitlab_gems, fedora_gems)
 
-    to_file = raw_input('Save Gitlab\'s deps as: ')
+    #to_file = raw_input('Save Gitlab\'s deps as: ')
+    to_file = '/home/axil/tools/fedora-gitlab/rubygems_gitlab'
     f = open(to_file, 'w')
     for rubygem in gitlab_gems:  
         f.write(rubygem + '\n')

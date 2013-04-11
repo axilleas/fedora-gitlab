@@ -41,13 +41,29 @@ def fedora_gems_list(fedora_gems_file):
 def common_gems(gitlab_gemlist, fedora_gemlist):
     ''' lists -> set
 
-    Returns a set of common gems between Gitlab and Fedora.
+    Returns a set of common items between two lists.
 
     >>> common_gems(['sinatra', 'sidekiq', 'sass_rails', 'sass'],['sass', 'rspec', 'sass_rails'])
     set(['sass_rails', 'sass'])
     '''
     
-    return set(gitlab_gemlist) & set(fedora_gemlist)
+    return set(gitlab_gemlist) & set(fedora_gemlist) 
+
+def find_missing(gitlab_gems, common_gems):
+    """lists -> list
+    
+    Returns a list with duplicate items removed. It searches the first list
+    and if an item is not in the second list it is added to the new list.
+    
+    >>> find_missing([1, 2, 3, 4, 5], [2, 4])
+    [1, 3, 5]
+    """
+    missing_gems = []
+    for gem in gitlab_gems:
+        if gem not in common_gems:
+            missing_gems.append(gem)
+
+    return missing_gems
 
 
 def statistics(gitlab_gemlist, fedora_gemlist):
@@ -61,6 +77,7 @@ def main():
     fedora_gems_file = '/home/axil/tools/fedora-gitlab/rubygems_fedora'
     fedora_gems = fedora_gems_list(fedora_gems_file)
     common = common_gems(gitlab_gems, fedora_gems)
+    missing = find_missing(gitlab_gems, fedora_gems)
 
     #to_file = raw_input('Save Gitlab\'s deps as: ')
     to_file = '/home/axil/tools/fedora-gitlab/rubygems_gitlab'
@@ -69,11 +86,18 @@ def main():
         f.write(rubygem + '\n')
     f.close()
     
+    missing_gems = '/home/axil/tools/fedora-gitlab/rubygems_missing'
+    f = open(missing_gems, 'w')
+    for rubygem in missing:  
+        f.write(rubygem + '\n')
+    f.close()
+    
     print 'Gitlab uses', len(gitlab_gems), 'gems.'
     print 'Fedora has packaged', len(fedora_gems), 'gems.'
     print 'There are', len(common), 'common gems.'
     print 'There should be packaged', len(gitlab_gems) - len(common), 'gems.'
-    print 'Fedora will have', round((len(gitlab_gems) - len(common))/float(len(fedora_gems))*100,2), '% more ruby packages, that is', len(common)+len(fedora_gems), 'gems in total.'
+    print 'Fedora will have' , round((len(gitlab_gems) - len(common))/float(len(fedora_gems))*100,2), '% more ruby packages, that is', len(common)+len(fedora_gems), 'gems in total.'
+    
     #for i in common:
     #    print i
 if __name__ == '__main__':

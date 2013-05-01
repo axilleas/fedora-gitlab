@@ -16,10 +16,10 @@ coveralls
 debug_inspector
 descendants_tracker
 devise
+dotenv
 email_spec
 enumerize
 escape_utils
-facter
 faraday
 faye-websocket
 ffaker
@@ -32,6 +32,7 @@ github-markdown
 github-markup
 gitlab-grack
 gitlab-pygments.rb
+gitlab_git
 gitlab_meta
 gitlab_omniauth-ldap
 gollum-lib
@@ -47,6 +48,7 @@ hashie
 http_parser.rb
 httpauth
 jquery-atwho-rails
+jquery-turbolinks
 jquery-ui-rails
 jwt
 kaminari
@@ -74,6 +76,7 @@ rails-dev-tweaks
 rails_best_practices
 raphael-rails
 rb-fsevent
+rb-kqueue
 redis
 redis-actionpack
 redis-activesupport
@@ -96,8 +99,8 @@ spinach-rails
 spork
 stamp
 stringex
-terminal-table
 test_after_commit
 timers
+turbolinks
 virtus
 yajl-ruby

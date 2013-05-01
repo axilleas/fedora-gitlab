@@ -141,6 +141,7 @@ file-tail
 flexmock
 fog
 foreigner
+foreman_api
 formatador
 formtastic
 fssm
@@ -236,6 +237,7 @@ netrc
 nokogiri
 open4
 openshift-origin-auth-mongo
+openshift-origin-auth-remote-user
 openshift-origin-dns-bind
 openshift-origin-msg-broker-mcollective
 openstack

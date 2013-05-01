@@ -37,13 +37,13 @@ debug_inspector
 descendants_tracker
 devise
 diff-lcs
+dotenv
 email_spec
 enumerize
 erubis
 escape_utils
 eventmachine
 execjs
-facter
 factory_girl
 factory_girl_rails
 faraday
@@ -52,6 +52,7 @@ ffaker
 ffi
 font-awesome-sass-rails
 foreman
+formatador
 gemoji
 gherkin-ruby
 github-linguist
@@ -59,6 +60,7 @@ github-markdown
 github-markup
 gitlab-grack
 gitlab-pygments.rb
+gitlab_git
 gitlab_meta
 gitlab_omniauth-ldap
 gollum-lib
@@ -82,6 +84,7 @@ i18n
 journey
 jquery-atwho-rails
 jquery-rails
+jquery-turbolinks
 jquery-ui-rails
 json
 jwt
@@ -135,6 +138,7 @@ rake
 raphael-rails
 rb-fsevent
 rb-inotify
+rb-kqueue
 rdoc
 redcarpet
 redis
@@ -177,7 +181,6 @@ stamp
 state_machine
 stringex
 temple
-terminal-table
 test_after_commit
 therubyracer
 thin
@@ -185,6 +188,7 @@ thor
 tilt
 timers
 treetop
+turbolinks
 tzinfo
 uglifier
 vcr
